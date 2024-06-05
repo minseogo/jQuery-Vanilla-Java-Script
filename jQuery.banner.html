@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+                const aniwidth = $(".banner").width(); // () 안에 공백이면 값을 가져오는것
+                $(".banner-slide").width(aniwidth);    // () 안에 값이 있으면, 값을 대입하는것
+
+                // $(".banner-wrapper").css("marginLeft", -aniwidth);
+                $(".banner-wrapper").animate({"marginLeft" : -aniwidth },400)
+            })
+    </script>
+    <style>
+        *{margin: 0; padding: 0;}
+        .banner{
+            overflow: hidden;
+        }
+        .banner-slide{
+            height: calc(100vh - 80px);
+            /* width: 100vw; 가 아닌 반드시 자바스크립트로 너비를 주어야 한다.*/
+        }
+        .bg0{
+            background-color: bisque;
+        }
+        .bg1{
+            background-color: rgba(169, 100, 16);
+        }
+        .bg2{
+            background-color: rgba(235, 162, 72);
+        }
+        .banner-wrapper{
+            display: flex;
+            width: 10000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="banner-wrapper">
+            <div class="banner-slide bg0"></div>
+            <div class="banner-slide bg1"></div>
+            <div class="banner-slide bg2"></div>
+        </div>
+        <div class="banner-btn"></div>
+    </div>
+</body>
+</html>
