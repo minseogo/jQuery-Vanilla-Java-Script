@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리는 바닐라와 달리 인터페이스에 초점을 두고 개발된 것이라 디자인관점에 잘 맞춰져 있음</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+     
+     <!-- <style>
+        body{
+            background-color: red;
+        }
+        h2{color: #ffffff;}
+        p{color: #ffff00;}
+     </style>
+     -->
+    
+    <script>
+        $(document).ready(function(){ // .ready가 안나오는 경우는 jQuery가 작동하지 않는 이유니, 버전확인하기
+
+            // $("body").css("background","red").html("<h2>동적객체<h2>").prepend("<p>제이쿼리로 삽입하기<p>");
+            //      $("body").css("background","red").html("<p></p><h2><h2>"); 는 상위의 최적화식이다.
+
+                // $("p").addClass("content").html("제이쿼리로 삽입하기";) - body에서 <p class = "content">제이쿼리로 삽입하기</p>와 같은 식임 
+                // $("p").addClass("title").html("<span>동적</span>객체";) - body에서 <h2 class = "title"><span>동적</span>객체</h2>와 같은 식임
+                
+            // $("h2").css("color","white");
+            // $("p").css("color","yellow");
+                // $("p").css("color",$("h2").css("color")); h2 태그의 컬러를 가져와서 p태그에 사용하여라
+
+
+                    }); 
+    </script>
+
+</head>
+<body>
+<!-- <script>
+        $("body").css("background","red");
+    </script> head에 사용하는법과 body에 사용하는 법이 다름.-->
+    
+    <!-- <p>동적개체</p>
+    <h2>동적개체</h2> -->
+</body>
+</html>
