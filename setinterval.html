@@ -8,11 +8,21 @@
     <script>
         $(function(){
             const bglist = ["pink", "red", "gray","green"];
-            let count = 100 % bglist.length ; // =  0, 1, 2, 3 이다.
+            let count = 0; // 0, 1, 2, 3
             // bglist.length 는 숫자 4를 의미, 4로 나누었을때의 나머지를 구하는 연산자 %
-            setInterval(function(){}, 3000); // 3초마다 실행된다.
-            $("body").css("background",bglist[count]);
-
+            setInterval(function(){
+                count++;
+                count = count % bglist.length; // count를 증가시킨 뒤 마지막 지점에서 순환하는 식
+                $("body").css("background", bglist[count]);
+            
+            }, 3000); // 3초 뒤부터 3초마다 실행하겠다.
+            $("body").css("background",bglist[count]); 
+            // 화면이 열리자마자 1회 실행, 이 식을 추가해야 setinterval을 사용할 수 있다. 즉 setinterval은 처음 식부터 단독으로 사용할 수 없다.
+            // 이 식의 순서는 
+            // 1. 배경 이미지 리스트 bglist를 정의합니다.
+            // 2. 카운트를 초기화합니다.
+            // 3. 처음 화면이 열릴 때 bglist의 첫 번째 이미지를 배경으로 설정합니다.
+            // 4. setInterval을 사용하여 주기적으로 배경 이미지를 변경합니다. 주기적으로 배경을 변경할 때마다 카운트를 증가시키고, 배경 리스트의 끝에 도달하면 카운트를 초기화합니다.
         })
     </script>
 
