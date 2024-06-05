@@ -12,7 +12,13 @@
 
                 // $(".banner-wrapper").css("marginLeft", -aniwidth);
                 setInterval(function(){
-                    $(".banner-wrapper").animate({"marginLeft" : "-="+aniwidth },400)
+                    $(".banner-wrapper").animate({"marginLeft" : "-="+aniwidth },400, function(){ 
+                        // animate({"스타일"}, 스피드, function(){애니메이션 끝나고 실행하는 기능식 넣기}
+                        $(".banner-slide").eq(0).appendTo($(".banner-wrapper"))   
+                        // $(".banner-slide : first -child").appendTo($(".banner-wrapper")) 상위와 같은 식이나, 잘 사용하지 않움.
+                        
+                        $(".banner-wrapper").css({"marginLeft" : 0 }) 
+                    })
                 }, 3000);               
             })
     </script>
