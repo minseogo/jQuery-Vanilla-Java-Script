@@ -1,0 +1,173 @@
+<style>
+    .container {
+        position: relative;
+        width: 100%;
+        max-width: 1920px !important;
+        margin: 0 auto !important;
+    }
+      
+    .container img {
+        width: 100%;
+        height: auto;
+    }
+      
+    .text-overlaytop {
+        text-align: center;
+        position: relative; /* Added */
+       
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+      
+    .text-overlaytop h1 {
+        margin: 0;
+        font-size: 50px;
+    }
+    
+    .text-overlaytop p {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    .fade-out-up {
+            opacity: 0;
+            transform: translateY(-50%);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+
+   #layout03 > #layoutBg > .clearfix:nth-child(1),
+   #layout03 > #layoutBg > .clearfix:nth-child(2) > div:nth-child(1),
+   #layout03 > #layoutBg > .clearfix:nth-child(2) > div:nth-child(2)
+    {
+        display: none !important;
+    }
+    .m_visual{
+        display: none !important;
+    }
+    #layout08_1b .pageCont {
+     padding-top: 0px !important;
+    }
+    .saveSummer{
+        margin-bottom: 0px !important;
+    }
+    #imgSize{
+        width: 100% !important;
+    }
+    .pageCont{
+        margin: 0 !important;
+        width: 1920px !important;
+    }
+
+    .clearfix contBox{
+        width: 1920px !important;
+    }
+
+    h1{
+        font-family: 'Pretendard', sans-serif !important;
+        font-size: 100px !important;
+        font-weight: 400 !important;
+        line-height: 1 !important;
+        color: #fff !important;
+    }
+    p {
+        font-family: 'Pretendard', sans-serif !important;
+        font-size: 24px !important;
+        font-weight: 400 !important;
+        line-height: 1.58 !important;
+        margin-top: 20px !important;
+        color: #fff !important;
+    }
+    .v100vh{
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .text-overlaytop{
+        opacity: 0;    
+        transition: 1s;
+        transform: translateY(0);
+    }
+    .show.text-overlay-up{
+        transform: translateY(50%);
+        opacity: 1;
+    }
+    .show.text-overlay-down{
+        transform: translateY(-50%);
+        opacity: 1;
+    }
+
+</style>
+
+  <div>
+
+  </div>
+ <div class="container" style="background: url(https://sum37.com/web/upload/brand/pc/brandstory-visual-bg.jpg?v1.1) ; background-size: cover; ">
+   
+  
+    <div class="v100vh">
+        <div class="text-overlaytop text-overlay-up"  id="brand-story">
+            <h1>BRAND STORY</h1>
+            <p>에클라(Eclat)는 프랑스어로 '빛남', '광채'를 의미합니다.</p>
+            <p>자연의 순수함과 아름다움을 그대로 담아내고자 하는 우리의 열정을 상징하며,</p>
+            <p>모든 여성들이 자신만의 빛을 발할 수 있도록 돕는 것이 우리의 목표입니다.</p>
+            <p>에클라는 자연에서 온 깨끗한 원료와 친환경적인 제조 과정을 통해</p>
+            <p>당신의 피부에 건강한 빛을 선사합니다</p>
+        </div>
+    </div>
+    <div  class="v100vh">
+        <div class="text-overlaytop text-overlay-down"  >
+            <h1>사회적 책임</h1>
+            <p>에클라는 우리의 성공이 사회와 환경에 미치는 영향을 깊이 인식하고 있습니다.</p>
+            <p>우리는 제품 판매 수익의 일부를 자연 보호 단체에 기부하며,</p>
+            <p>지속 가능한 원료 공급을 위한 농가와의 협력을 강화하고 있습니다.</p>
+            <p>또한, 지역 사회의 여성 자립을 돕기 위한 다양한 사회 공헌 활동을 전개하고 있습니다.</p>
+        </div>
+    </div>
+    
+
+   
+   
+</div>
+
+
+
+
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    // AOS.init();
+
+    $(document).ready(function() {
+            
+            $('.v100vh').eq(0).attr('data-info', 0);
+            $('.v100vh').eq(1).attr('data-info', $('.v100vh').eq(1).offset().top - $('.v100vh').eq(1).offset().top / 2 );
+            $('.text-overlaytop').eq(0).addClass('show');
+
+            $(window).on('scroll', function() {
+
+                var scrollPosition = $(this).scrollTop(); //스크롤위치
+                var windowHeight = $(window).height(); //높이
+                var elementOffset = $('.text-overlaytop').offset().top;
+                var distance = elementOffset - scrollPosition - windowHeight;
+
+               
+                $('body').attr('data-info', scrollPosition)
+
+                $('.text-overlaytop').each(function(){
+                    if(scrollPosition > $(this).parent(".v100vh").data('info')){
+                        $('.text-overlaytop').removeClass('show');
+                        $(this).addClass('show');
+                    }
+               
+                 })
+                
+
+            });
+        });
+</script>
